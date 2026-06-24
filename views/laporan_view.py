@@ -114,8 +114,8 @@ class LaporanManifesView(QWidget):
                 self.table.setItem(i, c, item)
             self.table.setRowHeight(i, 34)
             total_pend += t['total_harga']
-            if t['tipe_tiket'] == 'penumpang': total_p += t['jumlah_penumpang']
-            else: total_k += 1
+            total_p += t['jumlah_penumpang']
+            if t['tipe_tiket'] == 'kendaraan': total_k += 1
 
         self.table.setSortingEnabled(True)
         self._filter_tabel(self.search_input.text())
