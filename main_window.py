@@ -23,13 +23,6 @@ NAV_ITEMS_PETUGAS = [
 ]
 
 
-def _initials(full_name: str) -> str:
-    parts = full_name.strip().split()
-    if len(parts) >= 2:
-        return (parts[0][0] + parts[-1][0]).upper()
-    return full_name[:2].upper() if full_name else "?"
-
-
 def _hline() -> QFrame:
     """Thin horizontal divider."""
     f = QFrame()
@@ -65,15 +58,6 @@ class NavButton(QPushButton):
         for w in (self, self._text_lbl):
             w.style().unpolish(w)
             w.style().polish(w)
-
-
-class AvatarLabel(QLabel):
-    def __init__(self, initials: str, parent=None):
-        super().__init__(initials, parent)
-        self.setObjectName("avatar_label")
-        self.setFixedSize(38, 38)
-        self.setAlignment(Qt.AlignCenter)
-        self.setFont(QFont("Segoe UI", 12, QFont.Bold))
 
 
 class Sidebar(QFrame):

@@ -206,7 +206,7 @@ def delete_jadwal(jid):
         conn.commit()
         return True, "Jadwal dihapus"
     except Exception as e:
-        return False, str(e)
+        return False, f"Gagal menghapus jadwal karena sudah ada tiket yang diterbitkan untuk jadwal ini"
     finally:
         conn.close()
 
